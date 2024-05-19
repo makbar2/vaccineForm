@@ -2,23 +2,17 @@
 @rendermode InteractiveServer
 <PageTitle>South Manchester Travel Clinic Form</PageTitle>
 <h1>Travel Form</h1>
-<form>
+<form method="post" @onsubmit="Submit">
     <PatientDetails Patient="@patient"/>
-    <MedicalHistory/>
+    <MedicalHistory PatientMedicalHistory="@medicalHistory"/>
     
 </form>
-<button @onclick="checkPatient">Click me</button>
-<p>Patient surneame: @check </p>
-
 @code {
-
     private Patient patient = new Patient();
-    private string check = "";
+    private PatientMedicalHistory medicalHistory = new PatientMedicalHistory();
 
-    private void checkPatient()
+    private void Submit()
     {
-
-        check = patient.Surname;
+        
     }
-    
 }

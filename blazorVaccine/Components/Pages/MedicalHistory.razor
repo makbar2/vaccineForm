@@ -131,22 +131,8 @@
 </div>
 
 @code {
-    Dictionary<string, bool> questionStates = new Dictionary<string, bool>
-    {
-        { "feelingUnwell", false },
-        { "immunisations", false },
-        { "medicalHistory", false },
-        { "currentMedicines", false },
-        { "allergies", false },
-        { "seriousReaction", false },
-        { "hypersensitive", false },
-        { "epilepsy", false },
-        { "blackWaterFever", false },
-        { "liverFunction", false },
-        { "bloodDisorders", false },
-        { "medicalTreatment", false },
-        { "historyAnxiety", false }
-    };
+    [Parameter]
+    public PatientMedicalHistory medicalHistory {get;set;}
 
 
 
