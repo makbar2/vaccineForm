@@ -1,0 +1,66 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Project files
+bin/
+obj/
+
+# Log files
+*.log
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# VS Code
+.vscode/
+
+# User-specific files
+*.rsuser
+*.sln.ide
+
+# Mac
+.DS_Store
+*.dSYM
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Rider
+.idea/
+
+# JetBrains Rider
+.idea/
+*.sublime-workspace
+*.sublime-project
+out/
+
+# JetBrains Rider Directories for memory-intensive indexes
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/shelf/
+
+# CMake
+CMakeLists.txt.user
+
+# Node
+node_modules/
+
+# Blazor
+wwwroot/css/
+wwwroot/js/
+
+notes.txt

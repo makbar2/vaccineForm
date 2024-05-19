@@ -1,0 +1,154 @@
+﻿<h2>medicalHistory</h2>
+<div id="feelingUnWellDiv">
+    <label for="feelingUnwell">Are you feeling unwell today?</label><br>
+    <input type="radio" id="feelingUnwellYes" name="feelingUnwell" value="yes">
+    <label for="feelingUnwellYes">Yes</label>
+    <input type="radio" id="feelingUnwellNo" name="feelingUnwell" value="no">
+    <label for="feelingUnWellNo">No</label>
+   
+    
+</div>
+<div id="immunisationsDiv">
+    <label for="immunisations">Have you had any immunisations in the past 4 weeks?</label><br>
+    <input type="radio" id="immunisationsYes" name="immunisations" value="yes">
+    <label for="immunisationsYes">Yes</label>
+    <input type="radio" id="immunisationsNo" name="immunisations" value="no">
+    <label for="immunisationsNo">No</label><br>
+ 
+  
+</div>
+
+<div id="medicalHistoryDiv">
+    <label for="medicalHistory">Do you have any recent or past medical history of note?</label><br>
+    <input type="radio" id="medicalHistoryYes" name="medicalHistory" value="yes">
+    <label for="medicalHistoryYes">Yes</label>
+    <input type="radio" id="medicalHistoryNo" name="medicalHistory" value="no">
+    <label for="medicalHistoryNo">No</label><br>
+   
+    
+</div>
+
+<div id="currentMedicinesDiv">
+    <label for="currentMedicines">Do you take any current or repeat medicines or are you taking halofantrine?</label><br>
+    <input type="radio" id="currentMedicinesYes" name="currentMedicines" value="yes">
+    <label for="currentMedicinesYes">Yes</label>
+    <input type="radio" id="currentMedicinesNo" name="currentMedicines" value="no">
+    <label for="currentMedicinesNo">No</label><br>
+ 
+   
+</div>
+
+<div id="allergiesDiv">
+    <label for="allergies">Do you have any allergies to any medicines, latex or eggs?</label><br>
+    <input type="radio" id="allergiesYes" name="allergies" value="yes">
+    <label for="allergiesYes">Yes</label>
+    <input type="radio" id="allergiesNo" name="allergies" value="no">
+    <label for="allergiesNo">No</label><br>
+  
+  
+</div>
+
+<div id="seriousReactionDiv">
+    <label for="seriousReaction">Have you had a serious reaction to a vaccine, antimalarial or doxycycline before?</label><br>
+    <input type="radio" id="seriousReactionYes" name="seriousReaction" value="yes">
+    <label for="seriousReactionYes">Yes</label>
+    <input type="radio" id="seriousReactionNo" name="seriousReaction" value="no">
+    <label for="seriousReactionNo">No</label><br>
+ 
+   
+</div>
+
+<div id="hypersensitiveDiv">
+    <label for="hypersensitive">Do you know if you are hypersensitive to mefloquine or related compounds (e.g. quinine, quinidine) or excipients?</label><br>
+    <input type="radio" id="hypersensitiveYes" name="hypersensitive" value="yes">
+    <label for="hypersensitiveYes">Yes</label>
+    <input type="radio" id="hypersensitiveNo" name="hypersensitive" value="no">
+    <label for="hypersensitiveNo">No</label><br>
+
+    
+</div>
+
+<div id="epilepsyDiv">
+    <label for="epilepsy">Do you or any of your family suffer from epilepsy?</label><br>
+    <input type="radio" id="epilepsyYes" name="epilepsy" value="yes">
+    <label for="epilepsyYes">Yes</label>
+    <input type="radio" id="epilepsyNo" name="epilepsy" value="no">
+    <label for="epilepsyNo">No</label><br>
+  
+   
+</div>
+
+<div>
+    <label for="blackWaterFever">Do you have a past history of black water fever?</label><br>
+    <input type="radio" id="blackWaterFeverYes" name="blackWaterFever" value="yes">
+    <label for="blackWaterFeverYes">Yes</label>
+    <input type="radio" id="blackWaterFeverNo" name="blackWaterFever" value="no">
+    <label for="blackWaterFeverNo">No</label><br>
+  
+   
+</div>
+
+<div>
+    <label for="liverFunction">Do you have severe impairment of liver function?</label><br>
+    <input type="radio" id="liverFunctionYes" name="liverFunction" value="yes">
+    <label for="liverFunctionYes">Yes</label>
+    <input type="radio" id="liverFunctionNo" name="liverFunction" value="no">
+    <label for="liverFunctionNo">No</label><br>
+  
+  
+</div>
+
+<div>
+    <label for="bloodDisorders">Do you suffer from any blood disorders such as thalassemia or sickle cell anaemia?</label><br>
+    <input type="radio" id="bloodDisordersYes" name="bloodDisorders" value="yes">
+    <label for="bloodDisordersYes">Yes</label>
+    <input type="radio" id="bloodDisordersNo" name="bloodDisorders" value="no">
+    <label for="bloodDisordersNo">No</label><br>
+   
+   
+</div>
+
+<div>
+    <label for="medicalTreatment">Have you recently undergone radiotherapy, chemotherapy, steroids treatment?</label><br>
+    <input type="radio" id="medicalTreatmentYes" name="medicalTreatment" value="yes">
+    <label for="medicalTreatmentYes">Yes</label>
+    <input type="radio" id="medicalTreatmentNo" name="medicalTreatment" value="no">
+    <label for="medicalTreatmentNo">No</label><br>
+   
+   
+</div>
+
+<div>
+    <label for="historyAnxiety">Do you have any history of the following: anxiety, depression, heart, lung, spleen, liver, kidney, immunity, blood conditions, disorders, diabetes, immunity, HIV-AIDs?</label><br>
+    <input type="radio" id="historyAnxietyYes" name="historyAnxiety" value="yes">
+    <label for="historyAnxietyYes">Yes</label>
+    <input type="radio" id="historyAnxietyNo" name="historyAnxiety" value="no">
+    <label for="historyAnxietyNo">No</label><br>
+</div>
+<div id="notes">
+    <label for="notes">Please enter any extra information regarding your medical histroy</label>
+    <textarea id="notes"></textarea>
+</div>
+
+@code {
+    Dictionary<string, bool> questionStates = new Dictionary<string, bool>
+    {
+        { "feelingUnwell", false },
+        { "immunisations", false },
+        { "medicalHistory", false },
+        { "currentMedicines", false },
+        { "allergies", false },
+        { "seriousReaction", false },
+        { "hypersensitive", false },
+        { "epilepsy", false },
+        { "blackWaterFever", false },
+        { "liverFunction", false },
+        { "bloodDisorders", false },
+        { "medicalTreatment", false },
+        { "historyAnxiety", false }
+    };
+
+
+
+
+}
