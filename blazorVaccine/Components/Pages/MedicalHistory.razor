@@ -2,34 +2,35 @@
 <h2>medicalHistory</h2>
 <div id="feelingUnWellDiv">
     <label for="feelingUnwell">Are you feeling unwell today?</label><br>
-    <input type="radio" id="feelingUnwellYes" name="feelingUnwell" value="yes">
-    <label for="feelingUnwellYes">Yes</label>
-    <input type="radio" id="feelingUnwellNo" name="feelingUnwell" value="no">
-    <label for="feelingUnWellNo">No</label>
-   
-    
+    <InputRadioGroup id="feelingUnWell" @bind-Value="PatientMedicalHistory.FeelingUnwell">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
 </div>
 <div id="immunisationsDiv">
     <label for="immunisations">Have you had any immunisations in the past 4 weeks?</label><br>
-    <input type="radio" id="immunisationsYes" name="immunisations" value="yes">
-    <label for="immunisationsYes">Yes</label>
-    <input type="radio" id="immunisationsNo" name="immunisations" value="no">
-    <label for="immunisationsNo">No</label><br>
- 
-  
+    <InputRadioGroup id="immunisations" @bind-Value="PatientMedicalHistory.Immunisations">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
 </div>
 
 <div id="medicalHistoryDiv">
     <label for="medicalHistory">Do you have any recent or past medical history of note?</label><br>
-    <input type="radio" id="medicalHistoryYes" name="medicalHistory" value="yes">
-    <label for="medicalHistoryYes">Yes</label>
-    <input type="radio" id="medicalHistoryNo" name="medicalHistory" value="no">
-    <label for="medicalHistoryNo">No</label><br>
-   
-    
+    <InputRadioGroup id="medicalHistory" @bind-Value="PatientMedicalHistory.MedicalHistory ">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>    
 </div>
 
 <div id="currentMedicinesDiv">
+
+    <label for="medicalHistory">Do you take any current or repeat medicines or are you taking halofantrine?</label><br>
+    <InputRadioGroup id="medicalHistory" @bind-Value="PatientMedicalHistory.MedicalHistory ">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>    
+
     <label for="currentMedicines">Do you take any current or repeat medicines or are you taking halofantrine?</label><br>
     <input type="radio" id="currentMedicinesYes" name="currentMedicines" value="yes">
     <label for="currentMedicinesYes">Yes</label>
@@ -58,7 +59,7 @@
  
    
 </div>
-
+./
 <div id="hypersensitiveDiv">
     <label for="hypersensitive">Do you know if you are hypersensitive to mefloquine or related compounds (e.g. quinine, quinidine) or excipients?</label><br>
     <input type="radio" id="hypersensitiveYes" name="hypersensitive" value="yes">

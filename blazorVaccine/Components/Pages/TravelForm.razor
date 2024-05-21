@@ -7,7 +7,7 @@
 <form method="post" @onsubmit="Submit">
     <PatientDetails Patient="@patient"/>
     <MedicalHistory PatientMedicalHistory="@medicalHistory"/>
-    
+    <button type="submit">Submit</button>
 </form>
 @code {
 
@@ -16,6 +16,8 @@
 
     private void Submit()
     {
-
+        medicalHistory.SetPatient(patient);
+        context.Add(patient);
+        context.Add(medicalHistory);
     }
 }

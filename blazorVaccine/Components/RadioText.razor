@@ -1,0 +1,21 @@
+<div class="radioTextBox">
+    <InputRadioGroup TValue="bool" @bind-Value="@State">
+        @*its kinda stupid that you need to use an anonymous function here*@
+        <InputRadio Value="true" @onclick="(e) => changeState(true)"/>Yes
+        <InputRadio Value="false"  @onclick="(e) => changeState(false)"/>No
+    </InputRadioGroup>
+    <br/>
+    @if(State)
+    {
+        <textarea rows="3"></textarea>
+    }else{
+        <textarea rows="3" disabled></textarea>
+    }
+</div>
+@code{
+    public bool State=false; 
+    public void changeState(bool NewState)
+    {
+        State = NewState;
+    }
+}
