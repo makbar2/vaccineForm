@@ -1,15 +1,31 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace blazorVaccine.Models;
 public class Patient
 {
+    public int Id { get; set; }
+
+    [Required]
     public string? FirstName {get; set;}
+    [Required]
     public string? Surname {get; set;}
+    [Required]
     public DateOnly? Dob {get; set;}
+    [Required]
     public string? Address {get; set;}
+    [Required]
     public string? PhoneNumber {get; set;}
+    [Required]
     public string? GPAddress {get; set;}
+    [Required]
     public string? Email {get; set;}
+    [Required]
     public PatientMedicalHistory? MedicalHistory;
-    
+    [Required]
     public int Gender;
+
+    public List<VaccineApplied> VaccinesApplied { get; set; }
 
     public void setGender(string gender)
     {

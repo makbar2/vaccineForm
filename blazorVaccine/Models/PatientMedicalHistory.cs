@@ -1,3 +1,6 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace blazorVaccine.Models;
 public class PatientMedicalHistory
 {
     public int? id;
@@ -15,7 +18,11 @@ public class PatientMedicalHistory
     public bool? MedicalTreatment { get; set; }
     public bool? HistoryAnxiety { get; set; }
     public string? Notes { get; set; }
-    public Patient? Patient;
+
+    [ForeignKey("Patient")]
+    public int PatientId;
+
+    public Patient Patient;
 
     public void SetPatient(Patient patient)
     {
