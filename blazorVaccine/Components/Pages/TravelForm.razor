@@ -1,4 +1,5 @@
-﻿@page "/form"
+﻿@page "/form" 
+@inject Data.BlazorVaccineContext context
 @rendermode InteractiveServer
 @using blazorVaccine.Models
 <PageTitle>South Manchester Travel Clinic Form</PageTitle>
@@ -9,11 +10,12 @@
     
 </form>
 @code {
+
     private Patient patient = new Patient();
     private PatientMedicalHistory medicalHistory = new PatientMedicalHistory();
 
     private void Submit()
     {
-        
+
     }
 }
