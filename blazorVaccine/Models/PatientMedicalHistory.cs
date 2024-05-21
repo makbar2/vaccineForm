@@ -1,9 +1,11 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace blazorVaccine.Models;
 public class PatientMedicalHistory
 {
-    public int? id;
+    
+    public int id {get; set;}
     public bool? FeelingUnwell { get; set; }
     public bool? Immunisations { get; set; }
     public bool? MedicalHistory { get; set; }

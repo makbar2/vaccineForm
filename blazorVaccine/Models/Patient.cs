@@ -61,6 +61,4 @@ public class Patient
         }
         return this.MedicalHistory;
     }
-
-
 }
