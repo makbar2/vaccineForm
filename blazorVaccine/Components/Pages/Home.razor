@@ -1,8 +1,25 @@
 ﻿@page "/"
 @rendermode InteractiveServer
+@using Pages
+@using blazorVaccine.Models
+
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
-<RadioText/>
+
+<EditForm Model="medicalHistory">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <RadioText @bind-AttributeValue="@medicalHistory.CurrentMedicines" />
+    <button type="submit">Submit</button>
+</EditForm>
+
+<p>@medicalHistory.CurrentMedicines</p>
+
+@code {
+    
+    public PatientMedicalHistory medicalHistory = new PatientMedicalHistory();
+
+}

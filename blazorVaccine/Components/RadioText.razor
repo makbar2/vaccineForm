@@ -1,21 +1,40 @@
 <div class="radioTextBox">
-    <InputRadioGroup TValue="bool" @bind-Value="@State">
-        @*its kinda stupid that you need to use an anonymous function here*@
-        <InputRadio Value="true" @onclick="(e) => changeState(true)"/>Yes
-        <InputRadio Value="false"  @onclick="(e) => changeState(false)"/>No
+    <InputRadioGroup TValue="bool" @bind-Value="State">
+    <InputRadio Value="true" />Yes
+    <InputRadio Value="false" />No
     </InputRadioGroup>
     <br/>
-    @if(State)
+    @if (State)
     {
-        <textarea rows="3"></textarea>
-    }else{
-        <textarea rows="3" disabled></textarea>
+        <textarea rows="3" @bind="BoundAttributeValue"></textarea>
     }
+    else
+    {   
+        <textarea type="text" rows="3" disabled></textarea>
+    }
+
 </div>
 @code{
+// Parameter to accept the attribute value
+    [Parameter]
+    public string AttributeValue { get; set; }
+    // Event callback to notify the parent component of changes
+    [Parameter]
+    public EventCallback<string> AttributeValueChanged { get; set; }
+    private string BoundAttributeValue
+    {
+    get => AttributeValue ?? "";
+    set => AttributeValueChanged.InvokeAsync(value);
+    }
     public bool State=false; 
     public void changeState(bool NewState)
     {
         State = NewState;
+        if(State == false)
+        {
+            AttributeValue = "";
+            BoundAttributeValue= "";
+            AttributeValueChanged="";
+        }
     }
 }

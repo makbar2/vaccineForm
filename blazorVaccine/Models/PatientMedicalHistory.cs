@@ -9,7 +9,7 @@ public class PatientMedicalHistory
     public bool? FeelingUnwell { get; set; }
     public bool? Immunisations { get; set; }
     public bool? MedicalHistory { get; set; }
-    public bool? CurrentMedicines { get; set; }
+    public string? CurrentMedicines { get; set; } = "";
     public bool? Allergies { get; set; }
     public bool? SeriousReaction { get; set; }
     public bool? Hypersensitive { get; set; }

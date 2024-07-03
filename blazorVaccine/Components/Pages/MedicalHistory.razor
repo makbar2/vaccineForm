@@ -17,16 +17,14 @@
 
 <div id="medicalHistoryDiv">
     <label for="medicalHistory">Do you have any recent or past medical history of note?</label><br>
-    <InputRadioGroup id="medicalHistory" @bind-Value="PatientMedicalHistory.MedicalHistory ">
-        <InputRadio Value="true"/>Yes
-        <InputRadio Value="false"/>No
-    </InputRadioGroup>    
+
+    <textarea AttributeToBind="PatientMedicalHistory.MedicalHistory"></textarea>
 </div>
 
 <div id="currentMedicinesDiv">
 
     <label for="medicalHistory">Do you take any current or repeat medicines or are you taking halofantrine?</label><br>
-    <InputRadioGroup id="medicalHistory" @bind-Value="PatientMedicalHistory.MedicalHistory ">
+    <InputRadioGroup id="medicalHistory" @bind-Value="PatientMedicalHistory.CurrentMedicines">
         <InputRadio Value="true"/>Yes
         <InputRadio Value="false"/>No
     </InputRadioGroup>    
@@ -137,6 +135,11 @@
     public PatientMedicalHistory PatientMedicalHistory {get;set;}
 
 
+    //this changes the state of the radio box, i couldnt figure out how to 
+    public void changeState()
+    {
+
+    }
 
 
 }
