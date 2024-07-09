@@ -20,23 +20,11 @@
 
     <textarea AttributeToBind="PatientMedicalHistory.MedicalHistory"></textarea>
 </div>
-
+@* 
 <div id="currentMedicinesDiv">
-
-    <label for="medicalHistory">Do you take any current or repeat medicines or are you taking halofantrine?</label><br>
-    <InputRadioGroup id="medicalHistory" @bind-Value="PatientMedicalHistory.CurrentMedicines">
-        <InputRadio Value="true"/>Yes
-        <InputRadio Value="false"/>No
-    </InputRadioGroup>    
-
     <label for="currentMedicines">Do you take any current or repeat medicines or are you taking halofantrine?</label><br>
-    <input type="radio" id="currentMedicinesYes" name="currentMedicines" value="yes">
-    <label for="currentMedicinesYes">Yes</label>
-    <input type="radio" id="currentMedicinesNo" name="currentMedicines" value="no">
-    <label for="currentMedicinesNo">No</label><br>
- 
-   
-</div>
+    <RadioText @bind-AttributeValue="@medicalHistory.CurrentMedicines"></RadioText>    
+</div> *@
 
 <div id="allergiesDiv">
     <label for="allergies">Do you have any allergies to any medicines, latex or eggs?</label><br>

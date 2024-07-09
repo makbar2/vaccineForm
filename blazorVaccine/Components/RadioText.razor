@@ -1,40 +1,46 @@
 <div class="radioTextBox">
+    <label>@Question</label>
     <InputRadioGroup TValue="bool" @bind-Value="State">
-    <InputRadio Value="true" />Yes
-    <InputRadio Value="false" />No
+        <InputRadio Value="true" @onclick="() => updateState(true)" />Yes
+        <InputRadio Value="false" @onclick="() => updateState(false)" />No
     </InputRadioGroup>
-    <br/>
+    <br />
     @if (State)
     {
         <textarea rows="3" @bind="BoundAttributeValue"></textarea>
     }
     else
-    {   
+    {
         <textarea type="text" rows="3" disabled></textarea>
     }
-
 </div>
-@code{
-// Parameter to accept the attribute value
+
+@code {
+    [Parameter]
+    public string Question { get; set; }
+
     [Parameter]
     public string AttributeValue { get; set; }
-    // Event callback to notify the parent component of changes
+
     [Parameter]
     public EventCallback<string> AttributeValueChanged { get; set; }
+
     private string BoundAttributeValue
     {
-    get => AttributeValue ?? "";
-    set => AttributeValueChanged.InvokeAsync(value);
+        get => AttributeValue ?? "";
+        set => AttributeValueChanged.InvokeAsync(value);
     }
-    public bool State=false; 
-    public void changeState(bool NewState)
+
+    public bool State { get; set; } = false;
+
+    private async Task updateState(bool value)
     {
-        State = NewState;
-        if(State == false)
+        State = value;
+        if (!State)
         {
             AttributeValue = "";
-            BoundAttributeValue= "";
-            AttributeValueChanged="";
+            BoundAttributeValue = "";
+            await AttributeValueChanged.InvokeAsync("");
         }
     }
 }
