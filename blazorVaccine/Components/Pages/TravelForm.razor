@@ -4,15 +4,53 @@
 @using blazorVaccine.Models
 <PageTitle>South Manchester Travel Clinic Form</PageTitle>
 <h1>Travel Form</h1>
-<form method="post" @onsubmit="Submit">
-    <PatientDetails Patient="@patient"/>
-    <MedicalHistory PatientMedicalHistory="@medicalHistory"/>
-    <button type="submit">Submit</button>
-</form>
-@code {
 
-    private Patient patient = new Patient();
-    private PatientMedicalHistory medicalHistory = new PatientMedicalHistory();
+<EditForm Model="@patient">
+    
+    @switch(PageNum)
+    {
+        case 1:
+            <PatientDetails Patient="@patient"/>
+            break;
+        case 2:
+            <MedicalHistory PatientMedicalHistory="@patient.MedicalHistory"/>
+            break;
+    }
+    @if(PageNum <= 1)
+    {
+        <button @onclick="()=> { PageNum--; }" disabled>Back</button>
+    }else{
+        <button @onclick="()=> { PageNum--; }">Back</button>
+    }
+    @if(PageNum >= 2)
+    {
+        <button @onclick="()=> { PageNum++;  }" disabled>Next</button>
+    }else{
+        <button @onclick="()=> { PageNum++; }">Next</button>
+    }
+    <button type="submit">Submit</button>
+</EditForm>
+@code {
+    /*
+        TODO:
+            check if all feilds have been filled before allowing the user to press next
+                highlight which fields havent been filled in
+            disable button back button if on page one and next when on the last page
+            checck if the all the attributes in the class have been filled
+            add upload to db functionality
+    */
+
+    private Patient patient;
+    private PatientMedicalHistory medicalHistory;
+    private int PageNum;
+    protected override void OnInitialized()
+    {
+        patient = new Patient();
+        medicalHistory = new PatientMedicalHistory();
+        patient.SetMedicalHistory(medicalHistory);
+        PageNum = 1;
+    }
+    
 
     private void Submit()
     {

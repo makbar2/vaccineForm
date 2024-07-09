@@ -20,11 +20,12 @@
 
     <textarea AttributeToBind="PatientMedicalHistory.MedicalHistory"></textarea>
 </div>
-@* 
-<div id="currentMedicinesDiv">
-    <label for="currentMedicines">Do you take any current or repeat medicines or are you taking halofantrine?</label><br>
-    <RadioText @bind-AttributeValue="@medicalHistory.CurrentMedicines"></RadioText>    
-</div> *@
+
+<RadioText 
+    @bind-AttributeValue="@PatientMedicalHistory.CurrentMedicines" 
+    Question="Do you take any current or repeat medicines or are you taking halofantrine?"
+    ID="currentMedicines"
+/>
 
 <div id="allergiesDiv">
     <label for="allergies">Do you have any allergies to any medicines, latex or eggs?</label><br>
