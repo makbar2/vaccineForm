@@ -1,18 +1,22 @@
 <div class="radioTextBox">
-    <label>@Question</label>
-    <InputRadioGroup TValue="bool" @bind-Value="State">
-        <InputRadio Value="true" @onclick="() => updateState(true)" />Yes
+    <label class="radioLabel" for="@ID">
+        <p>
+            @Question
+        </p>
+    </label>
+    <InputRadioGroup TValue="bool" @bind-Value="State" name="@ID" id="@($"{ID}RadioGroup")">
+        <InputRadio Value="true" @onclick="() => updateState(true)"  />Yes
         <InputRadio Value="false" @onclick="() => updateState(false)" />No
     </InputRadioGroup>
     <br />
     @if (State)
     {
-        <textarea rows="3" @bind="BoundAttributeValue"></textarea>
+        <textarea rows="3" @bind="BoundAttributeValue"  id="@($"{ID}Text")" ></textarea>
     }
     else
     {
-        <textarea type="text" rows="3" disabled></textarea>
-    }
+        <textarea type="text" rows="3" disabled  id="@($"{ID}Text")"> </textarea>
+    }`
 </div>
 
 @code {
@@ -21,6 +25,12 @@
 
     [Parameter]
     public string AttributeValue { get; set; }
+
+    [Parameter]
+    public string ID {get; set; }
+    /*
+    *   this value will either have yes,no,div or text appeneded onto it for each element 
+    */
 
     [Parameter]
     public EventCallback<string> AttributeValueChanged { get; set; }
