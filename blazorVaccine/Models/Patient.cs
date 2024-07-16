@@ -6,7 +6,7 @@ public class Patient
 {
     public int Id { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Please enter the patients firstname")]
     public string? FirstName {get; set;}
     [Required]
     public string? Surname {get; set;}

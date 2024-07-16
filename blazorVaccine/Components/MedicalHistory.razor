@@ -15,108 +15,106 @@
     </InputRadioGroup>
 </div>
 
-<div id="medicalHistoryDiv">
-    <label for="medicalHistory">Do you have any recent or past medical history of note?</label><br>
 
-    <textarea AttributeToBind="PatientMedicalHistory.MedicalHistory"></textarea>
-</div>
 
-<RadioText 
+<RadioText @bind-AttributeValue="@PatientMedicalHistory.MedicalHistory" 
+    Question="Do you have any recent or past medical history of note?"
+    ID="medicalHistory"
+    
+/>
+
+@* <RadioText 
     @bind-AttributeValue="@PatientMedicalHistory.CurrentMedicines" 
     Question="Do you take any current or repeat medicines or are you taking halofantrine?"
     ID="currentMedicines"
-/>
+/> *@
 
 <div id="allergiesDiv">
     <label for="allergies">Do you have any allergies to any medicines, latex or eggs?</label><br>
-    <input type="radio" id="allergiesYes" name="allergies" value="yes">
-    <label for="allergiesYes">Yes</label>
-    <input type="radio" id="allergiesNo" name="allergies" value="no">
-    <label for="allergiesNo">No</label><br>
-  
+    <InputRadioGroup id="allergies" @bind-Value="PatientMedicalHistory.Allergies">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
+
   
 </div>
 
 <div id="seriousReactionDiv">
     <label for="seriousReaction">Have you had a serious reaction to a vaccine, antimalarial or doxycycline before?</label><br>
-    <input type="radio" id="seriousReactionYes" name="seriousReaction" value="yes">
-    <label for="seriousReactionYes">Yes</label>
-    <input type="radio" id="seriousReactionNo" name="seriousReaction" value="no">
-    <label for="seriousReactionNo">No</label><br>
- 
+    <InputRadioGroup id="seriousReaction" @bind-Value="PatientMedicalHistory.SeriousReaction">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
    
 </div>
-./
 <div id="hypersensitiveDiv">
     <label for="hypersensitive">Do you know if you are hypersensitive to mefloquine or related compounds (e.g. quinine, quinidine) or excipients?</label><br>
-    <input type="radio" id="hypersensitiveYes" name="hypersensitive" value="yes">
-    <label for="hypersensitiveYes">Yes</label>
-    <input type="radio" id="hypersensitiveNo" name="hypersensitive" value="no">
-    <label for="hypersensitiveNo">No</label><br>
+    <InputRadioGroup id="hypersensitive" @bind-Value="PatientMedicalHistory.Hypersensitive">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
 
     
 </div>
 
 <div id="epilepsyDiv">
     <label for="epilepsy">Do you or any of your family suffer from epilepsy?</label><br>
-    <input type="radio" id="epilepsyYes" name="epilepsy" value="yes">
-    <label for="epilepsyYes">Yes</label>
-    <input type="radio" id="epilepsyNo" name="epilepsy" value="no">
-    <label for="epilepsyNo">No</label><br>
-  
-   
+    <InputRadioGroup id="epilepsy" @bind-Value="PatientMedicalHistory.Epilepsy">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
 </div>
 
 <div>
     <label for="blackWaterFever">Do you have a past history of black water fever?</label><br>
-    <input type="radio" id="blackWaterFeverYes" name="blackWaterFever" value="yes">
-    <label for="blackWaterFeverYes">Yes</label>
-    <input type="radio" id="blackWaterFeverNo" name="blackWaterFever" value="no">
-    <label for="blackWaterFeverNo">No</label><br>
-  
-   
+    <InputRadioGroup id="blackWaterFever" @bind-Value="PatientMedicalHistory.BlackWaterFever">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
 </div>
-
 <div>
     <label for="liverFunction">Do you have severe impairment of liver function?</label><br>
-    <input type="radio" id="liverFunctionYes" name="liverFunction" value="yes">
-    <label for="liverFunctionYes">Yes</label>
-    <input type="radio" id="liverFunctionNo" name="liverFunction" value="no">
-    <label for="liverFunctionNo">No</label><br>
-  
-  
+    <InputRadioGroup id="liverFunction" @bind-Value="PatientMedicalHistory.LiverFunction">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
 </div>
 
 <div>
     <label for="bloodDisorders">Do you suffer from any blood disorders such as thalassemia or sickle cell anaemia?</label><br>
-    <input type="radio" id="bloodDisordersYes" name="bloodDisorders" value="yes">
-    <label for="bloodDisordersYes">Yes</label>
-    <input type="radio" id="bloodDisordersNo" name="bloodDisorders" value="no">
-    <label for="bloodDisordersNo">No</label><br>
+    <InputRadioGroup id="bloodDisorders" @bind-Value="PatientMedicalHistory.BloodDisorders">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
    
    
 </div>
-
 <div>
     <label for="medicalTreatment">Have you recently undergone radiotherapy, chemotherapy, steroids treatment?</label><br>
-    <input type="radio" id="medicalTreatmentYes" name="medicalTreatment" value="yes">
-    <label for="medicalTreatmentYes">Yes</label>
-    <input type="radio" id="medicalTreatmentNo" name="medicalTreatment" value="no">
-    <label for="medicalTreatmentNo">No</label><br>
-   
+    <InputRadioGroup id="medicalTreatment" @bind-Value="PatientMedicalHistory.MedicalTreatment">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
    
 </div>
 
 <div>
     <label for="historyAnxiety">Do you have any history of the following: anxiety, depression, heart, lung, spleen, liver, kidney, immunity, blood conditions, disorders, diabetes, immunity, HIV-AIDs?</label><br>
-    <input type="radio" id="historyAnxietyYes" name="historyAnxiety" value="yes">
-    <label for="historyAnxietyYes">Yes</label>
-    <input type="radio" id="historyAnxietyNo" name="historyAnxiety" value="no">
-    <label for="historyAnxietyNo">No</label><br>
+    <InputRadioGroup id="historyAnxiety" @bind-Value="PatientMedicalHistory.HistoryAnxiety">
+        <InputRadio Value="true"/>Yes
+        <InputRadio Value="false"/>No
+    </InputRadioGroup>
+   
 </div>
 <div id="notes">
-    <label for="notes">Please enter any extra information regarding your medical histroy</label>
-    <textarea id="notes"></textarea>
+    <label for="notes">
+        <p>
+            Please enter more infomation in the text box below such as when you have had previous vaccines and date of depatrue
+        </p>
+    </label>
+    <div>
+        <textarea id="notes" @bind="PatientMedicalHistory.Notes"></textarea>
+    </div>
 </div>
 
 @code {

@@ -11,7 +11,7 @@
     <br />
     @if (State)
     {
-        <textarea rows="3" @bind="BoundAttributeValue"  id="@($"{ID}Text")" ></textarea>
+        <textarea rows="3" @bind="BoundAttributeValue"  id="@($"{ID}Text")"></textarea>
     }
     else
     {
@@ -28,12 +28,26 @@
 
     [Parameter]
     public string ID {get; set; }
-    /*
-    *   this value will either have yes,no,div or text appeneded onto it for each element 
-    */
+
+   
+
+    public bool State { get; set; }
+
 
     [Parameter]
     public EventCallback<string> AttributeValueChanged { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        if(AttributeValue != "" & BoundAttributeValue != "")
+        {
+            State = true;
+        }else
+        {
+            State = false;
+        }
+    }
 
     private string BoundAttributeValue
     {
@@ -41,7 +55,7 @@
         set => AttributeValueChanged.InvokeAsync(value);
     }
 
-    public bool State { get; set; } = false;
+    //public bool State { get; set; } = false;
 
     private async Task updateState(bool value)
     {

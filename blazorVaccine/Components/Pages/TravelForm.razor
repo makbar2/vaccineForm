@@ -5,8 +5,8 @@
 <PageTitle>South Manchester Travel Clinic Form</PageTitle>
 <h1>Travel Form</h1>
 
-<EditForm Model="@patient">
-    
+<EditForm Model="@patient" OnValidSubmit="@Submit">
+    <DataAnnotationsValidator/>
     @switch(PageNum)
     {
         case 1:
@@ -18,15 +18,15 @@
     }
     @if(PageNum <= 1)
     {
-        <button @onclick="()=> { PageNum--; }" disabled>Back</button>
+        <button type="button" @onclick="()=> { PageNum--; }" disabled>Back</button>
     }else{
-        <button @onclick="()=> { PageNum--; }">Back</button>
+        <button type="button" @onclick="()=> { PageNum--; }">Back</button>
     }
     @if(PageNum >= 2)
     {
-        <button @onclick="()=> { PageNum++;  }" disabled>Next</button>
+        <button  type="button" @onclick="()=> { PageNum++;  }" disabled>Next</button>
     }else{
-        <button @onclick="()=> { PageNum++; }">Next</button>
+        <button type="button" @onclick="()=> { PageNum++; }">Next</button>
     }
     <button type="submit">Submit</button>
 </EditForm>
@@ -35,7 +35,7 @@
         TODO:
             check if all feilds have been filled before allowing the user to press next
                 highlight which fields havent been filled in
-            disable button back button if on page one and next when on the last page
+            
             checck if the all the attributes in the class have been filled
             add upload to db functionality
     */
@@ -54,8 +54,6 @@
 
     private void Submit()
     {
-        medicalHistory.SetPatient(patient);
-        context.Add(patient);
-        context.Add(medicalHistory);
+        Console.WriteLine("yep"+ patient.FirstName);
     }
 }
