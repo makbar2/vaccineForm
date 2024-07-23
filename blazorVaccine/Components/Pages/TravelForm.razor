@@ -1,12 +1,16 @@
-﻿@page "/form" 
+﻿@page "/" 
 @inject Data.BlazorVaccineContext context
 @rendermode InteractiveServer
 @using blazorVaccine.Models
+
+
 <PageTitle>South Manchester Travel Clinic Form</PageTitle>
+
 <h1>Travel Form</h1>
 
-<EditForm Model="@patient" OnValidSubmit="@Submit">
-    <DataAnnotationsValidator/>
+<EditForm Model="@patient" OnValidSubmit="@Submit" OnInvalidSubmit="@Invalid">
+    <ObjectGraphDataAnnotationsValidator/>
+    <ValidationSummary/>
     @switch(PageNum)
     {
         case 1:
@@ -33,11 +37,8 @@
 @code {
     /*
         TODO:
-            check if all feilds have been filled before allowing the user to press next
-                highlight which fields havent been filled in
+            nested validation for the form
             
-            checck if the all the attributes in the class have been filled
-            add upload to db functionality
     */
 
     private Patient patient;
@@ -52,7 +53,12 @@
     }
     
 
-    private void Submit()
+    private void Submit(EditContext context)
+    {
+        Console.WriteLine("yep"+ patient.FirstName);
+    }
+
+    private void Invalid(EditContext context)
     {
         Console.WriteLine("yep"+ patient.FirstName);
     }

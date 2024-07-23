@@ -6,37 +6,37 @@ public class PatientMedicalHistory
 {
     public int id {get; set;}
     [Required]
-    public bool? FeelingUnwell { get; set; }
+    public string? FeelingUnwell { get; set; } = "";
     [Required]
-    public bool? Immunisations { get; set; }
+    public string? Immunisations { get; set; } = "";
     [Required]
     public string? MedicalHistory { get; set; } = "";
     [Required]
     public string? CurrentMedicines { get; set; } = "";
     [Required]
-    public bool? Allergies { get; set; }
+    public string? Allergies { get; set; } = "";
     [Required]
-    public bool? SeriousReaction { get; set; }
+    public string? SeriousReaction { get; set; } = "";
     [Required]
-    public bool? Hypersensitive { get; set; }
+    public string? Hypersensitive { get; set; } = "";
     [Required]
-    public bool? Epilepsy { get; set; }
+    public string? Epilepsy { get; set; } = "";
     [Required]
-    public bool? BlackWaterFever { get; set; }
+    public string? BlackWaterFever { get; set; } = "";
     [Required]
-    public bool? LiverFunction { get; set; }
+    public string? LiverFunction { get; set; } = "";
     [Required]
-    public bool? BloodDisorders { get; set; }
+    public string? BloodDisorders { get; set; } = "";
     [Required]
-    public bool? MedicalTreatment { get; set; }
+    public string? MedicalTreatment { get; set; } = "";
     [Required]
-    public bool? HistoryAnxiety { get; set; }
-    public string? Notes { get; set; }
+    public string? HistoryAnxiety { get; set; } = "";
+    public string? Notes { get; set; } = "";
 
     [ForeignKey("Patient")]
     public int PatientId;
 
-    public Patient Patient;
+    public Patient? Patient;
 
     public void SetPatient(Patient patient)
     {

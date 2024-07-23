@@ -4,12 +4,12 @@
             @Question
         </p>
     </label>
-    <InputRadioGroup TValue="bool" @bind-Value="State" name="@ID" id="@($"{ID}RadioGroup")">
+    <InputRadioGroup TValue="bool?" @bind-Value="State" name="@ID" id="@($"{ID}RadioGroup")" required>
         <InputRadio Value="true" @onclick="() => updateState(true)"  />Yes
         <InputRadio Value="false" @onclick="() => updateState(false)" />No
     </InputRadioGroup>
     <br />
-    @if (State)
+    @if (State == true)
     {
         <textarea rows="3" @bind="BoundAttributeValue"  id="@($"{ID}Text")"></textarea>
     }
@@ -21,17 +21,17 @@
 
 @code {
     [Parameter]
-    public string Question { get; set; }
+    public string? Question { get; set; }
 
     [Parameter]
-    public string AttributeValue { get; set; }
+    public string? AttributeValue { get; set; }
 
     [Parameter]
-    public string ID {get; set; }
-
+    public string? ID {get; set; }
+    //i want to make them required but the linting wont go away if i put a data antotation on it 
    
 
-    public bool State { get; set; }
+    public bool? State { get; set; }
 
 
     [Parameter]
@@ -40,12 +40,24 @@
 
     protected override void OnInitialized()
     {
-        if(AttributeValue != "" & BoundAttributeValue != "")
+        if(AttributeValue == "" & BoundAttributeValue == "" )
+        {
+            State = null;
+        }else if(AttributeValue != "USER HAS SELECTED NO" & BoundAttributeValue != "USER HAS SELECTED NO" )
         {
             State = true;
-        }else
+        }
+        else
         {
             State = false;
+        }
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if(firstRender)
+        {
+            Console.WriteLine("");
         }
     }
 
@@ -57,14 +69,36 @@
 
     //public bool State { get; set; } = false;
 
+
+    /// <summary>
+    /// changes the state value to what was passed in as a paremeter
+    /// if the the user has selected no on the radio it will set the text to "USER HAS SELECTED NO"
+    /// this is to remove abugity when processing the form so that we know that the user has selected no on the radio anything else would mean that it was a yes
+    /// </summary>
+    /// <param name="value">The new state value to set has to be a bool.</param>
+    /// <returns>
+    /// Doesn't actually return anything of use, i was just forced to put a return type task to actually get this function to work
+    /// this function is called within a lambda expression as for reseason it would cause an error if i invoked it directly which is stupid
+    /// </returns>
+    /// <remarks>
+    /// </remarks>
     private async Task updateState(bool value)
     {
         State = value;
-        if (!State)
+        if (State == false)
         {
-            AttributeValue = "";
-            BoundAttributeValue = "";
-            await AttributeValueChanged.InvokeAsync("");
+            AttributeValue = "USER HAS SELECTED NO";
+            BoundAttributeValue = "USER HAS SELECTED NO";
+            await AttributeValueChanged.InvokeAsync("USER HAS SELECTED NO");
+        }else
+        {
+            //when clicking yes it would have this string within the textarea so this check is done to clear it, 
+            if(AttributeValue == "USER HAS SELECTED NO")
+            {
+                AttributeValue = "";
+                BoundAttributeValue = "";
+                await AttributeValueChanged.InvokeAsync("");
+            }
         }
     }
 }

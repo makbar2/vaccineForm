@@ -7,7 +7,7 @@ public class Patient
     public int Id { get; set; }
 
     [Required(ErrorMessage = "Please enter the patients firstname")]
-    public string? FirstName {get; set;}
+    public string? FirstName {get; set;} = "";
     [Required]
     public string? Surname {get; set;}
     [Required]
@@ -20,8 +20,8 @@ public class Patient
     public string? GPAddress {get; set;}
     [Required]
     public string? Email {get; set;}
-    [Required]
-    public PatientMedicalHistory? MedicalHistory;
+    [ValidateComplexType]
+    public PatientMedicalHistory MedicalHistory  {get; set;} = new PatientMedicalHistory();
     [Required]
     public int Gender;
 
