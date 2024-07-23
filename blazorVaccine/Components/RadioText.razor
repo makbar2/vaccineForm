@@ -11,7 +11,7 @@
     <br />
     @if (State == true)
     {
-        <textarea rows="3" @bind="BoundAttributeValue"  id="@($"{ID}Text")"></textarea>
+        <textarea rows="3" @bind="BoundAttributeValue"  id="@($"{ID}Text")" placeholder="Please enter details here"></textarea>
     }
     else
     {
@@ -40,7 +40,7 @@
 
     protected override void OnInitialized()
     {
-        if(AttributeValue == "" & BoundAttributeValue == "" )
+        if(AttributeValue == null || BoundAttributeValue == null )
         {
             State = null;
         }else if(AttributeValue != "USER HAS SELECTED NO" & BoundAttributeValue != "USER HAS SELECTED NO" )
@@ -98,7 +98,20 @@
                 AttributeValue = "";
                 BoundAttributeValue = "";
                 await AttributeValueChanged.InvokeAsync("");
+            }else if(AttributeValue == null)
+            //this method always runs when a radio is selected, because of this a check to see if AttributeValue is null is done.
+            //the value is changed to an empty string to indicate that the user has selected, yes
+            //if it was kept as null then it wouldnt indicate the user hasnt interacted with the the question 
+            //this implenation sucks, idk how to do it a different way
+            {
+                AttributeValue = "";
+                AttributeValue = "";
+                BoundAttributeValue = "";
+                await AttributeValueChanged.InvokeAsync("");
             }
         }
+
     }
+
+
 }

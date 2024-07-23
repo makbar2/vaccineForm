@@ -8,7 +8,7 @@
 
 <h1>Travel Form</h1>
 
-<EditForm Model="@patient" OnValidSubmit="@Submit" OnInvalidSubmit="@Invalid">
+<EditForm Model="@patient" OnValidSubmit="@Submit" >
     <ObjectGraphDataAnnotationsValidator/>
     <ValidationSummary/>
     @switch(PageNum)
@@ -36,9 +36,7 @@
 </EditForm>
 @code {
     /*
-        TODO:
-            nested validation for the form
-            
+       
     */
 
     private Patient patient;
