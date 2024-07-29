@@ -1,5 +1,5 @@
 ﻿@page "/" 
-@inject Data.BlazorVaccineContext context
+@inject Data.BlazorVaccineContext Context
 @rendermode InteractiveServer
 @using blazorVaccine.Models
 
@@ -33,6 +33,7 @@
         <button type="button" @onclick="()=> { PageNum++; }">Next</button>
     }
     <button type="submit">Submit</button>
+
 </EditForm>
 @code {
     /*
@@ -51,13 +52,23 @@
     }
     
 
-    private void Submit(EditContext context)
+    private async Task Submit(EditContext context)
     {
-        Console.WriteLine("yep"+ patient.FirstName);
+        try
+        {
+            Context.Patient.Add(patient);
+            await Context.SaveChangesAsync();
+            Console.WriteLine("Succesfully uploaded patient details to the database"); 
+
+        }catch(Exception ex)
+        {
+            Console.WriteLine("There was an error in uploading the details to the databse: " + ex.Message);
+        }
     }
 
     private void Invalid(EditContext context)
     {
         Console.WriteLine("yep"+ patient.FirstName);
     }
+    
 }
