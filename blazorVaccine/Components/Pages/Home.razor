@@ -1,9 +1,25 @@
-﻿@page "/d"
-@rendermode InteractiveServer
-@using Pages
+﻿@page "/"
 @using blazorVaccine.Models
+@rendermode InteractiveServer
+@using System.Text.RegularExpressions
+@using blazorVaccine.Repositories
+@inject IPatientRepository PatientRepository
+
 
 <PageTitle>Home</PageTitle>
 
 
 <h3>Welcome to your new app.</h3>
+
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        var patient = await Test();
+        Console.WriteLine(patient.FirstName);
+    }
+    
+    private async Task<Patient> Test()
+    {
+        return await PatientRepository.GetById(1);
+    }
+}

@@ -4,7 +4,7 @@ namespace blazorVaccine.Repositories
 {
     public interface IPatientRepository
     {
-        
+        //i dont see the point in this because i only have one patient type basically, this doesnt make sense to have 
         public Task<List<Patient>> GetAll();
         public Task <Patient> GetById(int id);
         public Task<List<Patient>> GetBySurname(string Surname);

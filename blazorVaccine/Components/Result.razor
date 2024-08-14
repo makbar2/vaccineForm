@@ -1,0 +1,22 @@
+@using blazorVaccine.Models
+<li>
+    <div class="searchResults">
+        <div id="">
+            <a >
+                @Patient.FirstName @Patient.Surname
+            </a>
+        </div>
+        <div id="addButton">
+            <a>
+
+            </a>
+        </div>
+    </div>
+
+</li>
+@code
+{
+    [Parameter]
+    public Patient? Patient {get ; set;}
+
+}

@@ -1,16 +1,47 @@
 @page "/Search"
 @using blazorVaccine.Models
-
+@rendermode InteractiveServer
+@using System.Text.RegularExpressions
+@using blazorVaccine.Repositories
+@inject IPatientRepository PatientRepository
 <div>
-    <form>
-        <label>
-            Please enter surname or dob (dd/mm/yyyy)
-        </label>
-        <input type="text">
-        <input type="submit" value="Filter">
-    </form>
+    <label>
+        Please enter surname or dob (dd/mm/yyyy)
+    </label>
+    <input type="text"  @oninput="HandleInput" />
+</div>
+<div>
+    @if (results != null && results.Any())
+    {
+        <ul>
+            @foreach(Patient result in results)
+            {
+                <Result Patient=result/>
+            }
+        </ul>
+    }
 </div>
 
-@{
+@code{
+    private string query;
+    private List<Patient>? results;
     
-}
+    private async Task HandleInput(ChangeEventArgs e)
+    {
+        results = null;
+        query = e.Value.ToString();
+        Console.WriteLine(query);
+        string dateRegexPattern = @"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/([0-9]{4})$";
+        Regex regex = new Regex(dateRegexPattern);
+        if(regex.IsMatch(query))
+        {
+            Console.WriteLine("date found");
+            
+      
+        }else{
+            Console.WriteLine("search by surname");
+            results = await PatientRepository.GetBySurname(query);
+            Console.WriteLine(results);
+        }
+    }
+}    

@@ -17,4 +17,13 @@ public class BlazorVaccineContext : DbContext
         optionsBuilder.UseMySQL("server=127.0.0.1;port=3306;database=blazor;user=root;password=root");
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Patient>()
+            .Property(p => p.Dob)
+            .HasConversion(new DateOnlyConverter());
+
+        base.OnModelCreating(modelBuilder);
+    }
+
 }

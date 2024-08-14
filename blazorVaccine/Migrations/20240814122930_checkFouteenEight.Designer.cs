@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using blazorVaccine.Data;
 
@@ -10,9 +11,11 @@ using blazorVaccine.Data;
 namespace blazorVaccine.Migrations
 {
     [DbContext(typeof(BlazorVaccineContext))]
-    partial class BlazorVaccineContextModelSnapshot : ModelSnapshot
+    [Migration("20240814122930_checkFouteenEight")]
+    partial class checkFouteenEight
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

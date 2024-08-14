@@ -1,5 +1,6 @@
 using blazorVaccine.Components;
 using blazorVaccine.Data;
+using blazorVaccine.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+
 builder.Services.AddDbContext<BlazorVaccineContext>();
+builder.Services.AddScoped<IPatientRepository , PatientRepository>();
 
 var app = builder.Build();
 

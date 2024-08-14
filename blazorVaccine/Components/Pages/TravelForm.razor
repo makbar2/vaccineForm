@@ -1,7 +1,8 @@
-﻿@page "/" 
-@inject Data.BlazorVaccineContext Context
+﻿@page "/TravelForm" 
 @rendermode InteractiveServer
 @using blazorVaccine.Models
+@using blazorVaccine.Repositories
+@inject IPatientRepository PatientRepository
 
 
 <PageTitle>South Manchester Travel Clinic Form</PageTitle>
@@ -36,9 +37,6 @@
 
 </EditForm>
 @code {
-    /*
-       
-    */
 
     private Patient patient;
     private PatientMedicalHistory medicalHistory;
@@ -56,9 +54,7 @@
     {
         try
         {
-            Context.Patient.Add(patient);
-            await Context.SaveChangesAsync();
-            Console.WriteLine("Succesfully uploaded patient details to the database"); 
+            await PatientRepository.Create(patient);
 
         }catch(Exception ex)
         {
